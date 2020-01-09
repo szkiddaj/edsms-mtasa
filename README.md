@@ -26,7 +26,7 @@ A(z) **src/web/** mappa tartalmát másold fel egy webtárhelyre, egy olyan hely
 Nyisd meg az edsms.php-t, majd add meg a felső részben lévő változókba, a szükséges adatokat. (SQL hozzáférés, ACL account hozzáférés, stb..)
 A phpMyAdminban válaszd ki a szervered adatbázisát, majd menj az SQL fülre felül. Másold be az alábbi kódot, majd nyomd meg az indítás gombot.
 
-    CREATE TABLE `edsms`.`edsms` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `phone` VARCHAR(16) NOT NULL , `value` INT(6) NOT NULL , `prefix` VARCHAR(24) NOT NULL , `msg` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+    CREATE TABLE `ADATBÁZIS NEVE IDE`.`edsms` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `phone` VARCHAR(16) NOT NULL , `value` INT(6) NOT NULL , `prefix` VARCHAR(24) NOT NULL , `msg` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 **Az alábbi részben az SRKHOST-nál lévő EDSMS rendszerhez való beállítást fogom bemutatni, más hostingoknál lehet máshogy lesz!**
 
