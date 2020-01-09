@@ -1,5 +1,8 @@
 <?php 
 
+    // created by szkiddaj (https://github.com/szkiddaj/edsms-mtasa)
+    // Ha kimered adni saját munkádnak, nyakonbaszlak
+
     // Szerver adatok, válasz SMS, stb...
     $dbHost = '127.0.0.1'; // Adatbázis IP címe
     $dbUser = 'root'; // Adatbázis felhasználó
