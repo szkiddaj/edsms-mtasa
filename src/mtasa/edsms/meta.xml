@@ -1,0 +1,5 @@
+<meta>
+    <script src='server/mainS.lua' type='server'/>
+    
+    <export function='receiveDonation' http='true'/> <!-- Engedélyezi hogy a függvényt meg lehessen hívni a webszerveren keresztül -->
+</meta>
