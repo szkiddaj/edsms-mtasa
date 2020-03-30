@@ -28,7 +28,7 @@
     */
     
     
-    $allowedAddresses = array('127.0.0.1', '193.28.86.95', '195.228.45.25'); // Az alapból megadott telefonszámok a netfizetéstől érkező IP címek (Ezért azért kell hogy random ipkről ne lehessen ppt addolni.)
+    $allowedAddresses = array('127.0.0.1', '193.28.86.95', '195.228.45.25'); // engedélyezett IP címek, amiket nem dob vissza a kód. (Azért van, hogy ne lehessen random IPkről meghívni.)
 
     if (!in_array($_SERVER['REMOTE_ADDR'], $allowedAddresses))
         die('Nem szabad.. ' . $_SERVER['REMOTE_ADDR']);
