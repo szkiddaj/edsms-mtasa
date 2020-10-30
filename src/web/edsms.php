@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     // created by szkiddaj (https://github.com/szkiddaj/edsms-mtasa)
     // Ha kimered adni saját munkádnak, nyakonbaszlak
@@ -26,9 +26,8 @@
         #DB2 = Nem sikerült belerakni az sqlbe a támogatást.
         #GAME1 = Ha valamiért nem tudja meghívni a függvényt a szerveren (Nincs elindítva, nincsen joga a szerveren, nem tudott belépni mert kikúrta.)
     */
-    
-    
-    $allowedAddresses = array('127.0.0.1', '193.28.86.95', '195.228.45.25'); // engedélyezett IP címek, amiket nem dob vissza a kód. (Azért van, hogy ne lehessen random IPkről meghívni.)
+
+    $allowedAddresses = array('127.0.0.1', '123.123.123.123'); // engedélyezett IP címek, amiket nem dob vissza a kód. (Azért van, hogy ne lehessen random IPkről meghívni.)
 
     if (!in_array($_SERVER['REMOTE_ADDR'], $allowedAddresses))
         die('Nem szabad.. ' . $_SERVER['REMOTE_ADDR']);
@@ -39,14 +38,16 @@
         $prefix = $_GET['prefix'];
         $msg = $_GET['text'];
 
-        $mysqli = new mysqli($dbHost, $dbUser, $dbPass, $dbTable);
-        if (!$mysqli) {
-            echo $errorMsg . ' #DB1';
-            exit;
+        try {
+          $conn = new PDO("mysql:host=${dbHost};dbname=$dbTable", $dbUser, $dbPass);
+          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        } catch (PDOException $e) {
+          echo "Sikertelen adatbázis csatlakozás! $e";
         }
 
-        $query = $mysqli->query("INSERT INTO edsms VALUES ('', '".$phone."', '".$value."', '".$prefix."', '".$msg."')");
-        if (!$query) {
+        $prep = $conn->prepare("INSERT INTO edsms (phone, value, prefix, msg) VALUES (?, ?, ?, ?)");
+        if (!$prep->execute(array( $phone, $value, $prefix, $msg ))) {
             echo $errorMsg . ' #DB2';
             exit;
         }
