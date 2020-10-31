@@ -44,6 +44,7 @@
           $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         } catch (PDOException $e) {
           echo "Sikertelen adatbázis csatlakozás! $e";
+          die;
         }
 
         $prep = $conn->prepare("INSERT INTO edsms (phone, value, prefix, msg) VALUES (?, ?, ?, ?)");
