@@ -39,12 +39,12 @@
         $msg = $_GET['text'];
 
         try {
-          $conn = new PDO("mysql:host=${dbHost};dbname=$dbTable", $dbUser, $dbPass);
+          $conn = new PDO("mysql:host=$dbHost;dbname=$dbTable", $dbUser, $dbPass);
           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         } catch (PDOException $e) {
           echo "Sikertelen adatbázis csatlakozás! $e";
-          die;
+          exit;
         }
 
         $prep = $conn->prepare("INSERT INTO edsms (phone, value, prefix, msg) VALUES (?, ?, ?, ?)");
