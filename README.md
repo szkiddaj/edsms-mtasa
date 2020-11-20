@@ -1,5 +1,5 @@
 ## edsms-mtasa
-Automatikus jóváírás SMS fizetés esetén MTA:SA-n. A fizetést követően bármilyen kódot le lehet futtatni MTA--n ezzel a kóddal. (Szóval csinálhatsz olyan SMS jóváírást mint seen.)
+Automatikus EDSMS feldolgozó script MTA:SA-hoz. A fizetést követően bármilyen kódot le lehet futtatni MTA--n ezzel a kóddal. (Szóval csinálhatsz olyan SMS jóváírást mint seen.)
 
 **Követelmények**
 Webtárhely, 
