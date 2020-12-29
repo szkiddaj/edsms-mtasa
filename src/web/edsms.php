@@ -32,11 +32,11 @@
     if (!in_array($_SERVER['REMOTE_ADDR'], $allowedAddresses))
         die('Nem szabad.. ' . $_SERVER['REMOTE_ADDR']);
 
-    if (isset($_GET['tel']) && isset($_GET['value']) && isset($_GET['prefix']) && isset($_GET['text'])) { // Ha minden get request megvan
+    if (isset($_GET['tel']) && isset($_GET['value']) && isset($_GET['prefix']) && isset($_GET['message'])) { // Ha minden get request megvan
         $phone = $_GET['tel'];
         $value = $_GET['value'];
         $prefix = $_GET['prefix'];
-        $msg = $_GET['text'];
+        $msg = urldecode($_GET['message'])
 
         try {
           $conn = new PDO("mysql:host=$dbHost;dbname=$dbTable", $dbUser, $dbPass);
