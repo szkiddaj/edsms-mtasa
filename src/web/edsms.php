@@ -36,7 +36,7 @@
         $phone = $_GET['tel'];
         $value = $_GET['value'];
         $prefix = $_GET['prefix'];
-        $msg = urldecode($_GET['message'])
+        $msg = urldecode($_GET['message']);
 
         try {
           $conn = new PDO("mysql:host=$dbHost;dbname=$dbTable", $dbUser, $dbPass);
